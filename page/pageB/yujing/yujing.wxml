@@ -1,0 +1,48 @@
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
+<view class="bg" style="height:auto">
+  <view class='yujingbox' style='text-align:center;padding-top:40rpx'>
+    {{yujingjibie}}
+  </view>
+  <view class='bgbg'>
+    <image class='bgbg' src='../../../image/{{bg}}.jpg'></image>
+  </view>
+  <view class='yujingimg'>
+    <image wx:if="{{yujingimg}}" src='https://m.weatherol.com.cn/img/warning/{{yujingimg}}'></image>
+  </view>
+  <view class='yujingbox' style='margin-top:40rpx'>
+    {{yujingneirong}}
+  </view>
+  <view class='yujingbox' style='margin-top:40rpx;text-align:right'>
+    {{yujingtime}}
+  </view>
+  <view class='yujingbox' style='border-top:1rpx solid #ffffff;margin-top:50rpx;padding-top:50rpx;'>
+    {{yujingjibie}}
+  </view>
+  <view class='yujingbox jibies' style='margin-top:50rpx;text-align:right;'>
+    <view class='tiao {{configs.color}}'></view><view>级别：</view>
+  </view>
+  <view class='yujingbox {{config.tipsshow}}' style='margin-top:20rpx;font-weight:bold;'>
+    防御指南
+  </view>
+  <view class='yujingbox' style='padding-bottom:20rpx'>
+    {{yujingzhinan}}
+  </view>
+  <view class="newsList">{{newTitle}}</view>
+  <view wx:for="{{newList}}" data-post-id="{{item.newid}}" bindtap="newsXq" class="new">
+    <view class="news" wx:if="{{item.thumbnail === undefined}}">
+      <view class="newsTitle">
+        <view class="newsT">{{item.title}}</view>
+        <view class="newTime">{{item.publishTime}}</view>
+      </view>
+    </view>
+    <view class="news" wx:else>
+      <image class="img" src="{{item.thumbnail}}" mode="widthFix"></image>
+      <view class="newsTitle">
+        <view class="newsT">{{item.title}}</view>
+        <view class="newTime">{{item.publishTime}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+<import src ="../../template/template.wxml"/>
+<template is="msgItem"/>

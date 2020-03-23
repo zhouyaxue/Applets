@@ -1,0 +1,280 @@
+<view style='opacity:1;overflow:hidden;position:absolute;top:-100%;left:0;'><canvas class="canvas" canvas-id="lineGraph"></canvas></view>
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
+<view class="{{configg.showhide}}">
+  <view class='bgbg'>
+    <image class='bgbg' src='../../../image/{{bg}}.jpg'></image>
+  </view>
+  <view class='citytop'>
+    <view class="guonei" hover-class='btn-hover' bindtap="buttonClick">
+      国内城市
+    </view>
+    <view class="guonei jingqu" hover-class='btn-hover' bindtap="buttonClickjq">
+      景区景点
+    </view>
+    <view class='guoji'>
+      国际城市
+    </view>
+  </view>
+  <view class='wrapper {{config2.showhide}}'>
+    <list-html data="{{city2}}" binddetail="bindtap2" search="{{value2}}">
+      <view class='list-warpper'>
+        <view class='list-search'>
+          <view class='list-search-box'>
+            <icon type="search" size="15" />
+            <input bindinput='watchPassWord2' placeholder="输入您要搜索的城市" />
+          </view>
+          <view bindtap='returnbtn' class='return'>取消</view>
+        </view>
+        <view class='sousuojieguo'>
+          <view wx:for="{{fhjieguo2}}" data-post-id="{{item.id}}" data-post-name="{{item.city_name_ch}}" bindtap='hotcity2'>
+            {{item.city_name_ch}}
+          </view>
+        </view>
+         <block>
+          <view class='title' style='overflow:hidden;'>
+            <view class='titlele'>历史城市</view>
+            <view class='titleri' bindtap="clearSearchStorageGJ">
+              <image src='../../../image/del.png'></image>
+              清空
+            </view>
+          </view>
+          <view class='hot'>
+            <view wx:for="{{searchRecordGJ}}" wx:key='{{item}}' hover-class='btn-hover' data-post-index="{{item.index}}" data-post-id="{{item.id}}" data-post-name="{{item.value}}" bindtap='hotcity2'>
+              {{item.value}}
+            </view>
+          </view>
+        </block>
+        <block>
+          <view class='title'>
+            热门城市
+          </view>
+          <view class='hot'>
+            <view wx:for="{{hot2}}" data-post-id="{{item.id}}" data-post-name="{{item.name}}" bindtap='hotcity2'>
+              {{item.name}}
+            </view>
+          </view>
+        </block>
+       
+      </view>
+    </list-html>
+  </view>
+</view>
+<view class='{{config4.shouye}}'>
+  <view class="bg">
+    <image class="widget__arrow" src="../../../image/{{bg}}.jpg" mode="aspectFill"></image>
+    <view class="shouping" style="position:relative;">
+      <view class="top">
+        <view class="chengshi" hover-class='btn-hover' bindtap='buttonClickshouyegj'>
+          <image src='../../../image/tianjia.png'></image>
+          <view class="citynames">{{CityNamegj}}</view>
+        </view>
+        <image class='logo' src='https://m.weatherol.com.cn/img/logo.png'></image>
+      </view>
+      <view class='zhongjian'>
+        <!-- 左侧 -->
+        <view class="zhongjianle">
+          <view class='zhongjianletop'>
+            <view class="wendu">{{skwendugj}}</view>
+            <view class="daci">°C</view>
+            <view class='shikuang' bindtap="clickMe">
+              <view> {{sktianqigj}}</view>
+              <view class='time'>{{sktimegj}}发布</view>
+            </view>
+          </view>
+          <view class='zhongjianlebo'>
+            <view>
+              <image style="margin-top:18rpx;width:27rpx;height:17rpx;" src='../../../image/feng.png'></image>{{fjibie}}</view>
+              <view>
+              <image style="width:19rpx;height:27rpx;margin-top:8rpx" src='../../../image/shuidi.png'></image>{{shidugj}}%</view>
+              <view>
+              <image style="width:30rpx;height:27rpx;margin-top:7rpx" src='../../../image/yaqiang.png'></image>{{yaqianggj}}hPa</view>  
+          </view>
+        </view>
+      </view>
+      <view class="yubaojinm">
+        <view class='jintian' style='border-right:1px solid rgba(255,255,255,0.5)'>
+          <view class="yubaotop">
+            <view class='yubaole'>
+              <view>今天</view>
+            </view>
+            <view class='yubaori'>{{todaywentugj}}℃</view>
+          </view>
+          <view class='yubaobo'>
+            <view class='yubaotianqi'>{{tadaytianqi}}</view>
+            <view class='yubaotubiao'>
+              <image wx:if="{{tadayicongj}}" src='https://m.weatherol.com.cn/img/dayweather/d{{tadayicongj}}.png'></image>
+            </view>
+          </view>
+        </view>
+        <view class='jintian' style="float:right;">
+          <view class="yubaotop">
+            <view class='yubaole'>
+              <view>明天</view>
+            </view>
+            <view class='yubaori'>{{tomorowwendugj}}℃</view>
+          </view>
+          <view class='yubaobo'>
+            <view class='yubaotianqi'>{{tomorowtianqi}}</view>
+            <view class='yubaotubiao'>
+              <image wx:if="{{tomorowicongj}}" src='https://m.weatherol.com.cn/img/dayweather/d{{tomorowicongj}}.png'></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='dierping'>
+      <view class='zhishu title bghei'>24小时预报</view>
+      <scroll-view scroll-x="true" class='bghei'>
+        <view class="uploadWrap" scroll-x="true" bindtap='ershisixq' data-post-id="{{Cityidgj}}" data-post-name="{{CityNamegj}}">
+          <block>
+            <view wx:for="{{ershisihourgj}}" width="3rem" class="swiperle">
+              <view>{{item.dateTime}}时</view>
+              <view>
+                <image wx:if="{{item.iconPic}}" src='https://m.weatherol.com.cn/img/dayweather/{{item.iconPic}}.png'></image>
+              </view>
+              <view class='hourwendu'>{{item.temp}}°</view>
+            </view>
+          </block>
+        </view>
+      </scroll-view>
+    </view>
+    <view class='zhishu videobox {{jieqis.show}}' >
+      <view class='title bghei'>节气视频</view>
+      <view class="controls" style="display:{{tab_jieqishow}}">
+        <view class='controltop'></view>
+        <image bindtap='jieqibo' class='showbtn' src='../../../image/bofangvideo.png'></image>
+        <image class="img" style='width:100%;height:400rpx;' wx:if="{{jieqiimg}}" src='{{jieqiimg}}'></image>
+      </view>
+      <video src='{{srcvideojieqi}}' style='display:{{tab_videojieqi}}' bindplay="bindplay" bindpause='bindpause' bindended="bindended" id='videojieqi'></video>
+    </view>
+    <!-- {{meinv.show}} -->
+     <view class='zhishu videobox {{meinv.show}}'>
+      <view class='title bghei'>美天视频</view>
+      <view class="controls" style="display:{{tab_image}}">
+        <view class='controltop'></view>
+        <image bindtap='bofang' class='showbtn' src='../../../image/bofangvideo.png'></image>
+        <image class="img" style='width:100%;height:400rpx;' wx:if="{{videoimg}}" src='{{videoimg}}'></image>
+      </view>
+      <video src='{{srcvideo}}' style="display:{{tab_video}}" bindplay="bindplay" bindpause='bindpause' bindended="bindended" id='video'></video>
+    </view> 
+    <view style="position:relative;margin-top:20rpx;" class='zhishu newfif'>
+      <view class='title'>10天预报</view>
+      <scroll-view class='shiwutian' scroll-x="true" style='white-space: nowrap; display: flex;'>
+       <canvas class="canvas" canvas-id="lineGraphgj" style="height:200rpx;width:1000rpx;position:absolute;left:0;top:0"></canvas>
+        <image class='fifimgsrc' style="width:{{imgwidth}}px;left:{{imgleft}}px" src='{{imgfif}}'></image>
+        <view class='shiwutianbox'>
+          <view class='swiperle' wx:for="{{fifgj}}">
+            <view wx:if="{{index==0}}" hover-class='btn-hover' bindtap='meirixiangqing2' data-post-id="{{Cityidgj}}" data-post-name="{{CityNamegj}}" data-post-a="{{index}}" class='yiyiyi'>
+              <view>昨天</view>
+              <view>{{item.validDateCN}}</view>
+              <view>{{item.day_iconText}}</view>
+              <view>
+                <image wx:if="{{item.day_icon}}" src='https://m.weatherol.com.cn/img/dayweather/d{{item.day_icon}}.png'></image>
+              </view>
+              <view class='yejian'>
+                <image wx:if="{{item.night_icon}}" src='https://m.weatherol.com.cn/img/dayweather/n{{item.night_icon}}.png'></image>
+              </view>
+              <view>{{item.night_iconText}}</view>
+              <view>{{item.day_wDirTextCN}}</view>
+            </view>
+            <view wx:elif="{{index==1}}" hover-class='btn-hover' bindtap='meirixiangqing2' data-post-id="{{Cityidgj}}" data-post-name="{{CityNamegj}}" data-post-a="{{index}}">
+              <view>今天</view>
+              <view>{{item.validDateCN}}</view>
+              <view>{{item.day_iconText}}</view>
+              <view>
+                <image wx:if="{{item.day_icon}}" src='https://m.weatherol.com.cn/img/dayweather/d{{item.day_icon}}.png'></image>
+              </view>
+              <view class='yejian'>
+                <image wx:if="{{item.night_icon}}" src='https://m.weatherol.com.cn/img/dayweather/n{{item.night_icon}}.png'></image>
+              </view>
+              <view>{{item.night_iconText}}</view>
+              <view>{{item.day_wDirTextCN}}</view>
+            </view>
+            <view wx:else hover-class='btn-hover' bindtap='meirixiangqing2' data-post-id="{{Cityidgj}}" data-post-name="{{CityNamegj}}" data-post-a="{{index}}">
+              <view>{{item.week}}</view>
+              <view>{{item.validDateCN}}</view>
+              <view>{{item.day_iconText}}</view>
+              <view>
+                <image wx:if="{{item.day_icon}}" src='https://m.weatherol.com.cn/img/dayweather/d{{item.day_icon}}.png'></image>
+              </view>
+              <view class='yejian'>
+                <image wx:if="{{item.night_icon}}" src='https://m.weatherol.com.cn/img/dayweather/n{{item.night_icon}}.png'></image>
+              </view>
+              <view>{{item.night_iconText}}</view>
+              <view>{{item.day_wDirTextCN}}</view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+      <view class='more' bindtap='fifmore' hover-class='btn-hover' data-post-id="{{Cityidgj}}" data-post-name="{{CityNamegj}}">十天预报>></view>
+    </view>
+    <!--节气印象 -->
+    <view class='zhishu bghei' style='margin-top:10px;'>
+      <view class='title' style='margin-top:0'>节气印象</view>
+      <view class='jieqibox' bindtap='jieqi'>
+        <view class='jieqiyinxiang'>
+          <image wx:if="{{jieqi}}" src='https://m.weatherol.com.cn/{{jieqi}}'></image>
+        </view>
+        <view class='jieqidw'>
+          <image wx:if="{{jieqidw}}" src='https://m.weatherol.com.cn/{{jieqidw}}'></image>
+        </view>
+      </view>
+    </view>
+    <!--指数开始 -->
+    <view class='zhishu bghei'>
+      <view class='title' style='margin-top:0'>生活指数</view>
+      <scroll-view scroll-x="false">
+        <view class='zhishuboxs'>
+          <view class='zhishule' data-post-id="{{Cityidgj}}" data-post-name="{{CityNamegj}}" data-post-type="ct"  data-post-mingzi="穿衣指数" hover-class='btn-hover' bindtap='zhishuxq'>
+            <image src="https://m.weatherol.com.cn/img/newzhishu_ct.png"></image>
+            <view>{{cy}}</view>
+            <view>穿衣</view>
+          </view>
+          <view class='zhishule' data-post-id="{{Cityidgj}}" data-post-name="{{CityNamegj}}" data-post-type="xc"  data-post-mingzi="洗车指数" hover-class='btn-hover' bindtap='zhishuxq'>
+            <image src="https://m.weatherol.com.cn/img/newzhishu_xc.png"></image>
+            <view>{{xc}}</view>
+            <view>洗车</view>
+          </view>
+          <view class='zhishule' data-post-id="{{Cityidgj}}" data-post-name="{{CityNamegj}}" data-post-type="uv"  data-post-mingzi="紫外线指数" hover-class='btn-hover' bindtap='zhishuxq'>
+            <image src="https://m.weatherol.com.cn/img/newzhishu_uv.png"></image>
+            <view>{{uv}}</view>
+            <view>紫外线</view>
+          </view>
+          <view class='zhishule' data-post-id="{{Cityidgj}}" data-post-name="{{CityNamegj}}" data-post-type="qc"  data-post-mingzi="骑车指数" hover-class='btn-hover' bindtap='zhishuxq'>
+            <image src="https://m.weatherol.com.cn/img/newzhishu_qc.png"></image>
+            <view>{{qc}}</view>
+            <view>骑车</view>
+          </view>
+          <view class='zhishule' data-post-id="{{Cityidgj}}" data-post-name="{{CityNamegj}}" data-post-type="pb"  data-post-mingzi="跑步指数" hover-class='btn-hover' bindtap='zhishuxq'>
+            <image src="https://m.weatherol.com.cn/img/newzhishu_pb.png"></image>
+            <view>{{pb}}</view>
+            <view>跑步</view>
+          </view>
+          <view class='zhishule' data-post-id="{{Cityidgj}}" data-post-name="{{CityNamegj}}" data-post-type="gm"  data-post-mingzi="感冒指数" hover-class='btn-hover' bindtap='zhishuxq' bindtap='zhishuxq'>
+            <image src="https://m.weatherol.com.cn/img/newzhishu_gm.png"></image>
+            <view>{{gm}}</view>
+            <view>感冒</view>
+          </view>
+          <view class='zhishule {{dyy.show}}' data-post-id="{{Cityidgj}}" data-post-name="{{CityNamegj}}" data-post-type="dy"  data-post-mingzi="钓鱼指数" hover-class='btn-hover' bindtap='zhishuxq'>
+            <image src="https://m.weatherol.com.cn/img/newzhishu_dy.png"></image>
+            <view>{{dy}}</view>
+            <view>钓鱼</view>
+          </view>
+          <view class='zhishule {{dyy.show}}' data-post-id="{{Cityidgj}}" data-post-name="{{CityNamegj}}" data-post-type="cl"  data-post-mingzi="晨练指数" hover-class='btn-hover' bindtap='zhishuxq'>
+            <image src="https://m.weatherol.com.cn/img/newzhishu_cl.png"></image>
+            <view>{{cl}}</view>
+            <view>晨练</view>
+          </view>
+          
+          
+          
+          
+          
+        </view>
+      </scroll-view>
+    </view>
+    <!--指数结束 -->
+  </view>
+</view>
+<import src ="../../template/template.wxml"/>
+<template is="msgItem"/>

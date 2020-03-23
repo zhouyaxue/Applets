@@ -1,0 +1,85 @@
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
+<view class='bgbg'>
+  <image class='bgbg' src='../../../image/{{bg}}.jpg'></image>
+</view>
+<scroll-view scroll-x="true" scroll-left="{{left}}">
+  <view class='swiper-tab-list'>
+    <block wx:for="{{meiri}}">
+      <view class="meirix {{currentTab==index ? 'on' : ''}}" wx:if="{{index==0}}" data-current="{{index}}" bindtap="swichNav">
+        <view>{{item.validDateCN}}</view>
+        <view>昨天</view>
+        <view>
+          <image src='https://m.weatherol.com.cn/img/dayweather/d{{item.day_icon}}.png'></image>
+        </view>
+      </view>
+      <view class="meirix {{currentTab==index ? 'on' : ''}}" wx:elif="{{index==1}}" data-current="{{index}}" bindtap="swichNav">
+        <view>{{item.validDateCN}}</view>
+        <view>今天</view>
+        <view>
+          <image src='https://m.weatherol.com.cn/img/dayweather/d{{item.day_icon}}.png'></image>
+        </view>
+      </view>
+      <view class="meirix {{currentTab==index ? 'on' : ''}}" wx:else data-current="{{index}}" bindtap="swichNav">
+        <view>{{item.validDateCN}}</view>
+        <view>{{item.week}}</view>
+        <view>
+          <image src='https://m.weatherol.com.cn/img/dayweather/d{{item.day_icon}}.png'></image>
+        </view>
+      </view>
+    </block>
+  </view>
+</scroll-view>
+<swiper current="{{currentTab}}" class="swiper-box" style="height:80%" duration="300" data-post-id="{{Cityidgj}}" data-post-name="{{Citynamegj}}"  bindchange="bindChange">
+  <swiper-item wx:for="{{xiangqing}}">
+    <block wx:if="{{index==0}}">
+      <view class='title'>天气</view>
+      <view class='top'>
+        <view class='tople'>
+          <view class='big'>{{tianqitop[index]}}{{item.day_iconText}}{{item.night_iconText}}</view>
+          <view>{{fengxiang[index]}}</view>
+        </view>
+        <view class='topri'>
+          {{item.maxTemp}}/{{item.minTemp}}°
+        </view>
+      </view>
+    </block>
+    <block wx:elif="{{index==1}}">
+      <view class='title'>天气</view>
+      <view class='top'>
+        <view class='tople'>
+          <view class='big'>{{tianqitop[index]}}</view>
+          <view>{{fengxiang[index]}}</view>
+        </view>
+        <view class='topri'>
+          {{item.maxTemp}}/{{item.minTemp}}°
+        </view>
+      </view>
+    </block>
+    <block wx:elif="{{index<5}}">
+      <view class='title'>天气</view>
+      <view class='top'>
+        <view class='tople'>
+          <view class='big'>{{tianqitop[index]}}</view>
+          <view>{{fengxiang[index]}}</view>
+        </view>
+        <view class='topri'>
+          {{item.maxTemp}}/{{item.minTemp}}°
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class='title'>天气</view>
+      <view class='top'>
+        <view class='tople'>
+          <view class='big'>{{tianqitop[index]}}</view>
+          <view>{{fengxiang[index]}}</view>
+        </view>
+        <view class='topri'>
+          {{item.maxTemp}}/{{item.minTemp}}°
+        </view>
+      </view>
+    </block>
+  </swiper-item>
+</swiper>
+<import src ="../../template/template.wxml"/>
+<template is="msgItem"/>

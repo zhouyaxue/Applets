@@ -1,0 +1,5 @@
+@import "../../../css/index.wxss";
+@import "../../template/template.wxss";
+.zhongjianle{
+  width:100%;
+}

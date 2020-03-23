@@ -1,0 +1,59 @@
+{
+  "pages": [
+    "page/pageA/index/index",
+    "page/pageA/pengyouquan/pengyouquan",
+    "page/pageA/ershisixq/ershisi"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "window": {
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black"
+  },
+  "subPackages": [
+    {
+      "root": "page/pageB/",
+      "pages": [
+        "aqi/aqi",
+        "yujing/yujing",
+        "meirixiangqing/meirixiangqing",
+        "fif/fif",
+        "zhishuxq/zhishuxq",
+        "video/video",
+        "pop/pop",
+        "jieqi/jieqi",
+        "test/test",
+        "quanguo/quanguo",
+        "indexjq/indexjq",
+        "aqijq/aqijq",
+        "fifjq/fifjq",
+        "zhishujq/zhishujq",
+        "news/news"
+      ]
+    },
+    {
+      "root": "page/pageC/",
+      "pages": [
+        "indexgj/indexgj",
+        "meirixiangqinggj/meirixiangqinggj",
+        "fifgj/fifgj",
+        "taifeng/taifeng",
+        "yantu/yantu",
+        "about/about",
+        "yijian/yijian",
+        "ershisigjxq/ershisi",
+        "download/download",
+        "gaowenzhuanti/gaowenzhuanti",
+        "baoyuzhuanti/baoyuzhuanti",
+        "zhishugj/zhishugj"
+      ]
+    }
+  ],
+  "sitemapLocation": "sitemap.json",
+  "navigateToMiniProgramAppIdList": [
+    "wwxe64811f1b0de8fa5"
+  ]
+}

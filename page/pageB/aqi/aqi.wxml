@@ -1,0 +1,237 @@
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
+<view class="bg">
+  <view style='position:relative;width:100%;'>
+    <view class='time' style='text-align:center;margin-right:0;font-size:32rpx'>
+      {{title}}{{xinghao}}
+    </view>
+    <view class='time'>
+      {{updatetime}}分更新
+    </view>
+    <view class='huan' style="border:8rpx solid {{aqicolor}};border-bottom:none;">
+      <view class='aqizhi'>{{aqi}}</view>
+      <view class='aqijibie'>AQI</view>
+      <view class='aqijibie'>{{aqijiebie}}</view>
+    </view>
+    <view class='laiyuan'>
+      来源：生态环境部
+    </view>
+    <view class='laiyuan' style='text-align:left;padding:0rpx 20rpx;line-height:50rpx;font-size:30rpx;'>
+      温馨提示:{{wenxintishi}}
+    </view>
+    <view class='qitashuju'>
+      <view class='qitale'>
+        <view class='biaoti'>pm2.5</view>
+        <view class='zhi'>{{pm25zhi}}</view>
+        <view class='tiao'>
+          <view class='tiaonei' style='background:{{pm25color}}'></view>
+        </view>
+      </view>
+      <view class='qitale'>
+        <view class='biaoti'>pm10</view>
+        <view class='zhi'>{{pm10zhi}}</view>
+        <view class='tiao'>
+          <view class='tiaonei' style="background:{{pm10color}}"></view>
+        </view>
+      </view>
+      <view class='qitale'>
+        <view class='biaoti'>So2</view>
+        <view class='zhi'>{{pmso2zhi}}</view>
+        <view class='tiao'>
+          <view class='tiaonei' style="background:{{pmso2color}}"></view>
+        </view>
+      </view>
+      <view class='qitale'>
+        <view class='biaoti'>No2</view>
+        <view class='zhi'>{{No2zhi}}</view>
+        <view class='tiao'>
+          <view class='tiaonei' style="background:{{No2color}}"></view>
+        </view>
+      </view>
+      <view class='qitale'>
+        <view class='biaoti'>O3</view>
+        <view class='zhi'>{{O3}}</view>
+        <view class='tiao'>
+          <view class='tiaonei' style="background:{{O3color}}"></view>
+        </view>
+      </view>
+      <view class='qitale'>
+        <view class='biaoti'>CO</view>
+        <view class='zhi'>{{CO}}</view>
+        <view class='tiao'>
+          <view class='tiaonei' style="background:{{COcolor}}"></view>
+        </view>
+      </view>
+    </view>
+    <view class='fifdayyubao' style='margin-top:40rpx;'>
+      <view class='title'>
+        7天预报
+      </view>
+      <scroll-view scroll-x="true">
+        <view class='fifbox'>
+          <view class='fifboxle' wx:for="{{fivefif}}">
+            <view wx:if="{{index==0}}">
+              <view>
+                昨天{{item.dateformat}}
+              </view>
+              <view>{{item.min}}~{{item.max}}</view>
+              <view class='aqijianb' style='background: linear-gradient(to right, {{item.minbgcolor}} , {{item.maxbgcolor}});'>
+                {{item.minlevel}}~{{item.maxlevel}}
+              </view>
+            </view>
+            <view wx:elif="{{index==1}}">
+              <view>
+                今天{{item.dateformat}}
+              </view>
+              <view>{{item.min}}~{{item.max}}</view>
+              <view class='aqijianb' style='background: linear-gradient(to right, {{item.minbgcolor}} , {{item.maxbgcolor}});'>
+                {{item.minlevel}}~{{item.maxlevel}}
+              </view>
+            </view>
+            <view wx:else>
+              <view>
+                {{item.week}}{{item.dateformat}}
+              </view>
+              <view>{{item.min}}~{{item.max}}</view>
+              <view class='aqijianb' style='background: linear-gradient(to right, {{item.minbgcolor}} , {{item.maxbgcolor}});'>
+                {{item.minlevel}}~{{item.maxlevel}}
+              </view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <view class='bgbg'>
+    <image class='bgbg' src='../../../image/{{bg}}.jpg'></image>
+  </view>
+  <view style='position:relative;overflow:hidden'>
+     <view class='title'>
+      空气质量地图
+      <view class='quanguo' bindtap='quanguo' style='float:right;' data-post-id="{{aqiid}}" data-post-name="{{aqiname}}">全国数据>></view>
+    </view>
+    <!--<cover-view class='quanpinganniu' bindtap='quanping'>
+      <image src='../../../image/{{quanping}}.jpg'></image>
+    </cover-view>-->
+    <!--地图功能-->
+     <map id="map" bindtap="hideModal" class="{{maps}}" longitude="{{weidu}}" latitude="{{jingdu}}" scale="12" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height: 300px;" data-jiance-level="{{jiancelevel}}" data-name='{{jiancename}}' data-jiance-value='{{value}}' data-jiance='{{jiance2}}'></map>    
+    <!--地图功能-->
+    <!-- 弹出层 -->
+    <cover-view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
+        {{placeName}} {{placejianceValue}} {{placejiance}} {{placejiancelevel}}
+    </cover-view>
+      <!-- 弹出层 -->
+  </view>
+  <view class='{{config.tipsshow}}' style='margin-top:20rpx;'>
+    <view class='title'>
+      监测点
+    </view>
+    <view class="swiper-tab">  
+        <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">AQI</view>  
+        <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">PM10</view>  
+        <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">PM2.5</view>
+        <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">CO</view>
+        <view class="swiper-tab-list {{currentTab==4 ? 'on' : ''}}" data-current="4" bindtap="swichNav">NO2</view>
+        <view class="swiper-tab-list {{currentTab==5 ? 'on' : ''}}" data-current="5" bindtap="swichNav">SO2</view>  
+    </view>
+    <swiper current="{{currentTab}}" class="swiper-box" style="height:{{height}}rpx" duration="300" bindchange="bindChange">  
+      <!-- AQI -->  
+      <swiper-item>
+        <view class='jiance' wx:for="{{jiance}}">
+          <view class='jiancele'>
+            {{item.station_name}}
+          </view>
+          <view class='jianceri'>
+            <view class='jianrizhi'>
+              {{item.aQI}}
+            </view>
+            <view class='jianrijibie' style='background:{{item.aQI_level_color}}'>
+              {{item.aQI_level}}
+            </view>
+          </view>
+        </view>
+      </swiper-item>  
+      <!-- PM10 -->  
+      <swiper-item>
+        <view class='jiance' wx:for="{{jiance}}">
+          <view class='jiancele'>
+            {{item.station_name}}
+          </view>
+          <view class='jianceri'>
+            <view class='jianrizhi'>
+              {{item.pM10}}
+            </view>
+            <view class='jianrijibie' style='background:{{item.pM10_level_color}}'>
+              {{item.pM10_level}}
+            </view>
+          </view>
+        </view>
+      </swiper-item>
+      <!-- PM2.5 -->  
+      <swiper-item>
+        <view class='jiance' wx:for="{{jiance}}">
+          <view class='jiancele'>
+            {{item.station_name}}
+          </view>
+          <view class='jianceri'>
+            <view class='jianrizhi'>
+              {{item.pM2_5}}
+            </view>
+            <view class='jianrijibie' style='background:{{item.pM2_5_level_color}}'>
+              {{item.pM2_5_level}}
+            </view>
+          </view>
+        </view>
+      </swiper-item>
+      <!-- CO -->  
+      <swiper-item>
+        <view class='jiance' wx:for="{{jiance}}">
+          <view class='jiancele'>
+            {{item.station_name}}
+          </view>
+          <view class='jianceri'>
+            <view class='jianrizhi'>
+              {{item.cO}}
+            </view>
+            <view class='jianrijibie' style='background:{{item.cO_level_color}}'>
+              {{item.cO_level}}
+            </view>
+          </view>
+        </view>
+      </swiper-item>
+      <!-- NO2 -->  
+      <swiper-item>
+        <view class='jiance' wx:for="{{jiance}}">
+          <view class='jiancele'>
+            {{item.station_name}}
+          </view>
+          <view class='jianceri'>
+            <view class='jianrizhi'>
+              {{item.nO2}}
+            </view>
+            <view class='jianrijibie' style='background:{{item.nO2_level_color}}'>
+              {{item.nO2_level}}
+            </view>
+          </view>
+        </view>
+      </swiper-item>
+      <!-- SO2 -->  
+      <swiper-item>
+        <view class='jiance' wx:for="{{jiance}}">
+          <view class='jiancele'>
+            {{item.station_name}}
+          </view>
+          <view class='jianceri'>
+            <view class='jianrizhi'>
+              {{item.sO2}}
+            </view>
+            <view class='jianrijibie' style='background:{{item.sO2_level_color}}'>
+              {{item.sO2_level}}
+            </view>
+          </view>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+</view>
+<import src ="../../template/template.wxml"/>
+<template is="msgItem"/>

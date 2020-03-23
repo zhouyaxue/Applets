@@ -1,0 +1,89 @@
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
+<view class='bgbg'>
+  <image class='bgbg' src='../../../image/{{bg}}.jpg'></image>
+</view>
+<view class='fifbox'>
+  <view class='fiftop bghei'>
+    <view class='fiftle'>
+      日期
+    </view>
+    <view class='fifmo'>
+      高温/低温
+    </view>
+    <view class='fifri'>
+      风力/风级
+    </view>
+  </view>
+  <view class='fifbo'>
+    <block wx:for="{{fif}}">
+      <view class='fifbb' bindtap='fifxq' data-post-id="{{cityid}}" data-post-name="{{cityname}}" data-post-a="{{index}}" data-current="{{index}}" wx:if="{{index==0}}">
+        <view class='fifbble'>
+          <view>昨天</view>
+          <view>{{item.date}}</view>
+        </view>
+        <view class='fifbbmo'>
+          <view class='fifbbmot'>
+            <image src='https://m.weatherol.com.cn/img/dayweather/d{{item.bai_weather}}.png'></image>
+            <view>{{item.bai_temperature}}°</view>
+            <view>/</view>
+            <image src='https://m.weatherol.com.cn/img/dayweather/n{{item.wan_weather}}.png'></image>
+            <view>{{item.wan_temperature}}°</view>
+          </view>
+          <view class='fifbbmob'>
+            {{tianqibo[index]}}
+          </view>
+        </view>
+        <view class='fifbbri'>
+          <view>{{fengxiangri[index]}}</view>
+          <view>{{fengji[index]}}</view>
+        </view>
+      </view>
+      <view class='fifbb' bindtap='fifxq' data-post-id="{{cityid}}" data-post-name="{{cityname}}" data-post-a="{{index}}" data-current="{{index}}" wx:elif="{{index==1}}">
+        <view class='fifbble'>
+          <view>今天</view>
+          <view>{{item.date}}</view>
+        </view>
+        <view class='fifbbmo'>
+          <view class='fifbbmot'>
+            <image src='https://m.weatherol.com.cn/img/dayweather/d{{item.bai_weather}}.png'></image>
+            <view>{{item.bai_temperature}}°</view>
+            <view>/</view>
+            <image src='https://m.weatherol.com.cn/img/dayweather/n{{item.wan_weather}}.png'></image>
+            <view>{{item.wan_temperature}}°</view>
+          </view>
+          <view class='fifbbmob'>
+            {{tianqibo[index]}}
+          </view>
+        </view>
+        <view class='fifbbri'>
+          <view>{{fengxiangri[index]}}</view>
+          <view>{{fengji[index]}}</view>
+        </view>
+      </view>
+      <view class='fifbb' bindtap='fifxq' data-post-id="{{cityid}}" data-post-name="{{cityname}}" data-post-a="{{index}}" data-current="{{index}}" wx:else>
+        <view class='fifbble'>
+          <view>{{item.week}}</view>
+          <view>{{item.date}}</view>
+        </view>
+        <view class='fifbbmo'>
+          <view class='fifbbmot'>
+            <image src='https://m.weatherol.com.cn/img/dayweather/d{{item.bai_weather}}.png'></image>
+            <view>{{item.bai_temperature}}°</view>
+            <view>/</view>
+            <image src='https://m.weatherol.com.cn/img/dayweather/n{{item.wan_weather}}.png'></image>
+            <view>{{item.wan_temperature}}°</view>
+          </view>
+          <view class='fifbbmob'>
+            {{tianqibo[index]}}
+          </view>
+        </view>
+        <view class='fifbbri'>
+          <view>{{fengxiangri[index]}}</view>
+          <view>{{fengji[index]}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+<import src ="../../template/template.wxml"/>
+<template is="msgItem"/>

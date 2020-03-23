@@ -1,0 +1,13 @@
+<!--wxml部分-->
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
+<view class="{{friendbox.show}} friendbox">
+  <canvas canvas-id="myCanvas" style='height:460px;background:#ffffff'/>
+</view>
+<view class="chooseImage">
+  <view bindtap="share" class='{{save.show}}'>
+    保存图片
+  </view>
+  <view class='{{goshare.show}}' bindtap='goshare'>
+    已保存图片，立刻去分享
+  </view>
+</view>

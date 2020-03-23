@@ -1,0 +1,16 @@
+<template name="msgItem">
+  <view class='footerbox bghei'>
+    <view class='footer'>
+      <image src='../../../image/logo.png'></image>
+    </view>
+    <view class='footerbo'>
+      <view bindtap='about'>
+        关于我们
+      </view>
+      <view>|</view>
+      <view bindtap='yijian'>意见反馈</view>
+      <view>|</view>
+      <view bindtap='download'>下载app</view>
+    </view>
+  </view>
+</template>

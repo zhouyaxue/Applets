@@ -1,0 +1,40 @@
+page{
+  background: #dedede;
+}
+.friendbox{
+  width:80%;
+  margin:auto;
+  margin-top:30rpx;
+  background: #ffffff;
+  padding-top:2%;
+  padding-bottom: 2%;
+}
+.friendbox canvas {
+  width: 96%;
+  margin:auto;
+  background: none;
+  z-index: 10;
+  background: #ffffff;
+}
+.chooseImage view{
+  text-align: center;
+  color:#fff;
+  font-size:30rpx;
+  width:50%;
+  margin:auto;
+  background: #1296db;
+  border-radius: 10rpx;
+  line-height: 60rpx;
+  margin-top:30rpx;
+}
+.saved{
+  width:60%;
+  left:50%;
+  margin:auto;
+  background: rgba(0,0,0,0.5);
+  border-radius: 20rpx;
+  color:#ffffff;
+  font-size:30rpx;
+  text-align: center;
+  line-height: 60rpx;
+}

@@ -1,0 +1,782 @@
+@import "../page/pageA/citysearch/city.wxss";
+/* @import "../../components/comment/comment.wxss"; */
+@import "../page/template/template.wxss";
+
+/* .canvasHigh {
+  width: 2250rpx;
+  height: 270rpx;
+  transform: translateX(-200%);
+  background: #eac74c;
+}
+
+.canvas_img {
+  width: 2250rpx;
+  height: 270rpx;
+} */
+
+/* canvas {
+  padding-top: 10rpx;
+} */
+
+.canvas {
+  width: 1400rpx;
+  height: 220rpx;
+}
+
+.aqiview {
+  margin-top: 20rpx;
+}
+
+.aqiview navigator {
+  color: #fff;
+  font-size: 28rpx;
+  width: 200rpx;
+}
+
+.widget__arrow {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.shouping {
+  width: 100%;
+  height: 100vh;
+}
+
+.flex_wrap {
+  display: flex;
+}
+
+.flex_item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid orange;
+  width: 100px;
+  height: 100px;
+}
+
+.top {
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  overflow: hidden;
+  position: relative;
+  height: 146rpx;
+}
+
+.top .logo {
+  width: 80rpx;
+  height:100rpx;
+  float: left;
+  margin-top: 22rpx;
+}
+
+.chengshi {
+  color: #fff;
+  text-align: center;
+  margin-top: 32rpx;
+  width: 474rpx;
+  position: absolute;
+  left: 50%;
+  margin-left: -237rpx;
+  top: 10rpx;
+  overflow: hidden;
+}
+
+.chengshi view {
+  display: inline-block;
+  font-size: 32rpx;
+}
+
+.zhongjian {
+  overflow: hidden;
+  margin-top: -10rpx;
+  margin-left: 24rpx;
+  margin-right: 24rpx;
+}
+
+.zhongjianle {
+  float: left;
+  width: 70%;
+}
+
+.zhongjianletop {
+  overflow: hidden;
+  height:252rpx;
+}
+
+.zhongjianri {
+  width: 30%;
+  float: right;
+}
+.wendu {
+  float: left;
+  color: #fff;
+  font-size: 186rpx;
+  font-weight: 100;
+}
+.shikuang {
+  float: left;
+  margin-top: 162rpx;
+  margin-left: -100rpx;
+}
+
+.shikuang view {
+  color: #fff;
+  font-size: 28rpx;
+  float: left;
+}
+
+.time {
+  margin-left: 20rpx;
+}
+
+.zhongjianlebo {
+  overflow: hidden;
+  margin-top:-20rpx;
+}
+
+.jiangshuiyubao {
+  color: #fff;
+  font-size: 28rpx;
+  margin-top: 20rpx;
+}
+
+.zhongjianlebo view {
+  float: left;
+  color: #fff;
+  font-size: 28rpx;
+  margin-left: 10rpx;
+}
+
+.zhongjianlebo view image {
+  margin-right: 10rpx;
+  display: block;
+  float: left;
+}
+
+.chengshi image {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 23rpx;
+  display: inline-block;
+  margin-top: 9rpx;
+  opacity: 0.8;
+}
+
+.yujing {
+  margin-top: 40rpx;
+}
+
+.yujing view {
+  background: rgba(0, 0, 0, 0.3);
+  display: block;
+  border-radius: 10rpx;
+  color: #fff;
+  font-size: 26rpx;
+  overflow: hidden;
+  float: none;
+  width: 280rpx;
+}
+
+.yujingtetx {
+  padding: 15rpx 10rpx;
+  margin-bottom: 20rpx;
+}
+
+.yujing view image {
+  display: block;
+  float: left;
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+}
+
+.yujing view view {
+  display: block;
+  float: left;
+  background: none;
+  padding: 0 0;
+  width: auto;
+}
+
+.yubaojinm {
+  position: absolute;
+  width: 100%;
+  height: 180rpx;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.jintian {
+  float: left;
+  width: 44%;
+  margin-top: 30rpx;
+  height: 126rpx;
+  padding: 0rpx 20rpx;
+}
+
+.mingtian {
+  float: right;
+  width: 48%;
+  margin-right: 1%;
+}
+
+.yubaotop {
+  overflow: hidden;
+}
+
+.yubaole {
+  float: left;
+  color: #fff;
+  font-size: 28rpx;
+}
+
+.yubaole view {
+  float: left;
+  line-height: 34rpx;
+  font-size: 30rpx;
+}
+
+.yubaole .yubaojibie {
+  background: #eac74c;
+  border-radius: 10rpx;
+  padding: 5rpx 20rpx;
+  font-size: 24rpx;
+  margin-left: 17px;
+}
+
+.yubaori {
+  float: right;
+  color: #fff;
+  font-size: 30rpx;
+}
+
+.yubaotianqi {
+  float: left;
+  font-size: 30rpx;
+  color: #fff;
+}
+
+.yubaobo {
+  overflow: hidden;
+  margin-top: 40rpx;
+}
+
+.yubaotubiao {
+  float: right;
+}
+
+.yubaotubiao image {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.title {
+  padding: 0rpx 20rpx;
+  line-height: 80rpx;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  color: #fff;
+  font-size: 32rpx;
+}
+
+.swiper {
+  height: 180rpx;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  width: 40rem;
+}
+.hide{
+  display: none
+}
+.swiperle {
+  /* width: 110rpx; */
+  flex: 1;
+}
+.yubaori {
+  margin-top: -6rpx;
+}
+
+.swiperle view {
+  text-align: center;
+  width: 110rpx;
+  color: #fff;
+  font-size: 30rpx;
+  line-height: 70rpx;
+}
+
+.swiperle view image {
+  width: 50rpx;
+  height: 50rpx;
+  margin: auto;
+}
+
+.yiyiyi {
+  height: 100%;
+}
+
+.yejian {
+  margin-top: 270rpx;
+}
+
+.shiwutian {
+  white-space: nowrap;
+  display: flex;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 80rpx;
+  height: 800rpx;
+}
+
+.newfif {
+  position: relative;
+  height: 933rpx;
+  background: rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  margin-top: 20rpx;
+}
+
+.shiwutian .swiperle {
+  /* width: 125rpx; */
+  border-right: 1rpx solid rgba(255, 255, 255, 0.3);
+  flex: 1;
+  line-height: 50rpx;
+  height: 777rpx;
+}
+
+.shiwutian .swiperle view {
+  width: 125rpx;
+  line-height: 60rpx;
+  height: 60rpx;
+}
+
+.uploadWrap {
+  width: 100%;
+  display: flex;
+  display: -webkit-box;
+  flex-direction: column;
+}
+
+.shiwutianbox {
+  width: 100%;
+  display: flex;
+  display: -webkit-box;
+  flex-direction: column;
+}
+
+.tiao {
+  width: 150rpx;
+  height: 10rpx;
+  background: pink;
+  border-radius: 10rpx;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+.aqiboxri {
+  float: right;
+  padding: 10rpx 10rpx;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10rpx;
+  margin-top: 50rpx;
+}
+
+.aqiboxri view {
+  color: #fff;
+  font-size: 28rpx;
+  line-height: 50rpx;
+}
+
+.aqiboxbo {
+  overflow: hidden;
+}
+
+.aqiboxbo view {
+  float: left;
+}
+.aqiboxbori{
+  float:left;margin-top:8rpx;margin-right:5rpx;
+}
+.aqiboxbo view image {
+  width: 46rpx;
+  height: 35rpx;
+}
+.swiperle .hourwendu {
+  line-height: 50rpx;
+  margin-top: -15rpx;
+}
+
+.dingweibtn {
+  color: #fff;
+  font-size: 30rpx;
+  padding: 10rpx 20rpx;
+  border: 1rpx solid #fff;
+  border-radius: 10rpx;
+  margin-left: 30rpx;
+  width: 80rpx;
+  text-align: center;
+}
+
+.more {
+  display: block;
+  font-size: 30rpx;
+  line-height: 80rpx;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  background: rgba(23, 89, 129, 0.5);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 10000;
+}
+
+
+
+.bofangpic {
+  position: relative;
+}
+
+.controls image {
+  width: 100%;
+  height: 400rpx;
+}
+
+.canvasgn {
+  width: 1100px;
+  height: 120px;
+  display: block;
+  position: absolute;
+  left: -36px;
+  z-index: 0;
+}
+
+.shiwutian .shiwutianbox .da {
+  height: auto;
+}
+
+.jieqiyinxiang image {
+  width: 100%;
+  height: 250rpx;
+  display: block;
+}
+
+.jieqibox {
+  position: relative;
+}
+
+.jieqidw {
+  position: absolute;
+  width: 170rpx;
+  left: 50%;
+  margin-left: -85rpx;
+  top: 0rpx;
+  z-index: 100;
+}
+
+.jieqidw image {
+  width: 170rpx;
+  height: 240rpx;
+}
+
+.videobox video {
+  width: 100%;
+}
+
+.videobox {
+  position: relative;
+}
+
+.showbtn {
+  position: absolute;
+  width: 60rpx !important;
+  height: 60rpx !important;
+  left: 50%;
+  margin-left: -30rpx;
+  top: 50%;
+  margin-top: -30rpx;
+  z-index: 100000;
+}
+
+.controls {
+  position: relative;
+}
+
+.controltop {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  left: 0;
+  top: 0;
+  z-index: 100;
+}
+
+.taifengbox {
+  overflow: hidden;
+  margin-top: 20rpx;
+}
+
+.taifengbox view {
+  display: block;
+  float: left;
+  color: #fff;
+  font-size: 28rpx;
+  line-height: 50rpx;
+  width: 500rpx;
+}
+
+.taifengbox image {
+  display: block;
+  float: right;
+  width: 100%;
+  height: 274rpx;
+}
+
+.body-view {
+  position: fixed;
+  width: 70%;
+  height: 250rpx;
+  left: 50%;
+  margin-left: -35%;
+  top: 50%;
+  margin-top: -150rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  z-index: 1000000000;
+}
+
+.body-view view {
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+}
+
+.body-view text {
+  font-size: 28rpx;
+}
+
+.body-view button {
+  margin-top: 15rpx;
+}
+
+.tianjia {
+  position: fixed;
+  right: 10rpx;
+  top: 17rpx;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20rpx;
+  width: 250rpx;
+  color: #fff;
+  font-size: 28rpx;
+  z-index: 10000;
+}
+
+.tianjia image {
+  position: fixed;
+  width: 30rpx;
+  height: 15rpx;
+  right: 125rpx;
+  top: 2rpx;
+  z-index: 10000;
+}
+
+.share {
+  width: 90rpx;
+  height: 90rpx;
+  position: fixed;
+  right: 20rpx;
+  bottom: 200rpx;
+  z-index: 100000;
+}
+
+.share image {
+  width: 90rpx;
+  height: 90rpx;
+}
+
+.shareChoose {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  z-index: 100000000;
+  background: #fff;
+}
+
+.sharetitle {
+  line-height: 60rpx;
+  text-align: center;
+  color: #333;
+  font-size: 28rpx;
+  border-bottom: 1rpx solid #f6f6f6;
+}
+
+.sharebo {
+  padding: 56rpx 80rpx;
+  overflow: hidden;
+}
+
+.sharebo .sharele {
+  float: left;
+  width: 50%;
+}
+
+.sharebo .sharele image {
+  width: 100rpx;
+  height: 100rpx;
+  display: block;
+  margin: auto;
+}
+
+.sharebo .sharele view {
+  font-size: 26rpx;
+  color: #666;
+  text-align: center;
+  line-height: 40rpx;
+}
+
+.quxiao {
+  line-height: 80rpx;
+  background: #f6f6f6;
+  color: #333;
+  font-size: 28rpx;
+  text-align: center;
+}
+.dingweiFail{
+  position: fixed;
+  width:80%;
+  background: #ffffff;
+  height:30vh;
+  border-radius: 10rpx;
+  left:50%;
+  margin-left: -40%;
+  top:50%;
+  margin-top:-25vh;
+  z-index: 1000000;
+}
+.dingweiFtitle{
+  text-align: center;
+  font-size:28rpx;
+  line-height: 80rpx;
+  color:#333333;
+  font-weight: bold;
+}
+.dingweiFneirong{
+  width:90%;
+  margin:auto;
+  font-size:28rpx;
+  line-height: 60rpx;
+  padding-bottom: 20rpx;
+}
+.dingweiBtn{
+  line-height: 80rpx;
+  color:green;
+  font-size:28rpx;
+  text-align: center;
+  border-top:1px solid #dddddd;
+}
+.xd image{
+  width:138rpx !important;
+  height:16rpx !important;
+  margin-left: 56rpx !important;
+  transform:rotate(7deg);
+  -ms-transform:rotate(7deg); 	/* IE 9 */
+  -moz-transform:rotate(7deg); 	/* Firefox */
+  -webkit-transform:rotate(7deg); /* Safari 和 Chrome */
+  -o-transform:rotate(7deg); 	/* Opera */
+}
+.mo image{
+  width:138rpx !important;
+  height:16rpx !important;
+  margin-top:32rpx !important;
+  transform:rotate(0deg);
+  -ms-transform:rotate(0deg); 	/* IE 9 */
+  -moz-transform:rotate(0deg); 	/* Firefox */
+  -webkit-transform:rotate(0deg); /* Safari 和 Chrome */
+  -o-transform:rotate(0deg); 	/* Opera */
+}
+.wrapper{
+  min-height: 80vh;
+}
+.fifimgsrc{
+  position: absolute;
+  width:2200rpx;
+  height:230rpx;
+  top:276rpx;
+  z-index: -1;
+}
+.daci{
+  float: left;
+  color:#ffffff;
+  font-size:100rpx;
+  margin-top:26rpx;
+  font-weight: 100
+}
+.homePrecipitationCurve{
+  width:400rpx;
+  z-index: 100;
+  height:200rpx;
+  background: rgba(0, 0, 0, 0.2);
+  margin-top: 20rpx;
+  position: relative;
+  border-radius: 10rpx;
+}
+.homePrecipitationCurve view{
+  color:#ffffff;
+  font-size:24rpx;
+}
+.homePrecipitationCurve .Curvetime view{
+  width:33%;
+  float: left;
+  margin-left: 0;
+}
+.homePrecipitationCurve .Curvetime{
+  overflow: hidden;
+  margin-left:75rpx;
+  margin-top:-9rpx;
+  width:100%;
+}
+.homePrecipitationCurve canvas{
+  width:450rpx;
+  height:150rpx;
+  margin-left:38rpx;
+  margin-top:-35rpx;
+}
+.CurveLine{
+ position: absolute;
+  left: 10rpx;
+  top: 44rpx;
+  width: 100%;
+}
+.CurveLine view{
+  width:90%;
+  /* height:1rpx; */
+  /* background: red; */
+  padding-top:8rpx;
+  padding-bottom:8rpx;
+  height:24rpx;
+  line-height: 24rpx;
+  color:#ffffff;
+  font-size:22rpx;
+  border-top:1rpx solid rgba(255, 255, 255, 0.2)
+}
+.homePrecipitationCurve .twoInfo{
+  font-size:22rpx;
+  width:98%;
+  height:40rpx;
+  line-height: 40rpx;
+  overflow: hidden;
+  white-space: nowrap;/*不换行*/
+  text-overflow:ellipsis;
+  text-align: center;
+  margin:auto;
+}
+.popTwo{
+  margin-top:20rpx;
+}

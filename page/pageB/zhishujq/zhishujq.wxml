@@ -1,0 +1,34 @@
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
+<view class='zhishutop'>
+  <image wx:if="{{bgg}}" class='bjt' src='https://m.weatherol.com.cn/img/{{bgg}}.jpg'></image>
+  <view class='zhishutopheimu'>
+    <view class='zhishutopbox'>
+      <image wx:if="{{bg}}" src='https://m.weatherol.com.cn/img/{{bg}}.png'></image>
+      <view class='jibie'>{{jiebie}}</view>
+      <view class='xiangxi'>
+        <view class='xiangxitop'>
+          <view class='xiangxitople'>天气：{{tianqi}}</view>
+          <view class='xiangxitopri'>温度：{{wendu}}℃</view>
+        </view>
+        <view class='xiangxitop'>
+          <view class='xiangxitople' style='float:none;'><view style="float:left;">{{fengji}}</view><view style="float:right;">日出日落：{{richuriluo}}</view></view>
+        </view>
+      </view>
+      <view class='zhushutopbo'>
+       {{tixing}}
+      </view>
+      <view>
+        <image src=''></image>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='boimg'>
+  <image src='../../../image/bo.png'></image>
+</view>
+<view class='zhishubo'>
+  <view class='zhishubotitle'>指数小百科</view>
+  <view class='zhishutext'>{{baike}}</view>
+</view>
+<import src ="../../template/template.wxml"/>
+<template is="msgItem"/>

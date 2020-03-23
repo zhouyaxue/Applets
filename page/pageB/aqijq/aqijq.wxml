@@ -1,0 +1,109 @@
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
+<view class="bg">
+  <view style='position:relative;width:100%;'>
+    <view class='time' style='text-align:center;margin-right:0;font-size:32rpx'>
+      {{title}}
+    </view>
+    <view class='time'>
+      {{updatetime}}分更新
+    </view>
+    <view class='huan' style="border:8rpx solid {{aqicolor}};border-bottom:none;">
+      <view class='aqizhi'>{{aqi}}</view>
+      <view class='aqijibie'>AQI</view>
+      <view class='aqijibie'>{{aqijiebie}}</view>
+    </view>
+    <view class='laiyuan'>
+      来源：生态环境部
+    </view>
+    <view class='laiyuan' style='text-align:left;padding:0rpx 20rpx;line-height:50rpx;font-size:30rpx;'>
+      温馨提示:{{wenxintishi}}
+    </view>
+    <view class='qitashuju'>
+      <view class='qitale'>
+        <view class='biaoti'>pm2.5</view>
+        <view class='zhi'>{{pm25zhi}}</view>
+        <view class='tiao'>
+          <view class='tiaonei' style='background:{{pm25color}}'></view>
+        </view>
+      </view>
+      <view class='qitale'>
+        <view class='biaoti'>pm10</view>
+        <view class='zhi'>{{pm10zhi}}</view>
+        <view class='tiao'>
+          <view class='tiaonei' style="background:{{pm10color}}"></view>
+        </view>
+      </view>
+      <view class='qitale'>
+        <view class='biaoti'>So2</view>
+        <view class='zhi'>{{pmso2zhi}}</view>
+        <view class='tiao'>
+          <view class='tiaonei' style="background:{{pmso2color}}"></view>
+        </view>
+      </view>
+      <view class='qitale'>
+        <view class='biaoti'>No2</view>
+        <view class='zhi'>{{No2zhi}}</view>
+        <view class='tiao'>
+          <view class='tiaonei' style="background:{{No2color}}"></view>
+        </view>
+      </view>
+      <view class='qitale'>
+        <view class='biaoti'>O3</view>
+        <view class='zhi'>{{O3}}</view>
+        <view class='tiao'>
+          <view class='tiaonei' style="background:{{O3color}}"></view>
+        </view>
+      </view>
+      <view class='qitale'>
+        <view class='biaoti'>CO</view>
+        <view class='zhi'>{{CO}}</view>
+        <view class='tiao'>
+          <view class='tiaonei' style="background:{{COcolor}}"></view>
+        </view>
+      </view>
+    </view>
+    <view class='fifdayyubao' style='margin-top:40rpx;'>
+      <view class='title'>
+        7天预报
+      </view>
+      <scroll-view scroll-x="true">
+        <view class='fifbox'>
+          <view class='fifboxle' wx:for="{{fivefif}}">
+            <view wx:if="{{index==0}}">
+              <view>
+                昨天{{item.dateformat}}
+              </view>
+              <view>{{item.min}}~{{item.max}}</view>
+              <view class='aqijianb' style='background: linear-gradient(to right, {{item.minbgcolor}} , {{item.maxbgcolor}});'>
+                {{item.minlevel}}~{{item.maxlevel}}
+              </view>
+            </view>
+            <view wx:elif="{{index==1}}">
+              <view>
+                今天{{item.dateformat}}
+              </view>
+              <view>{{item.min}}~{{item.max}}</view>
+              <view class='aqijianb' style='background: linear-gradient(to right, {{item.minbgcolor}} , {{item.maxbgcolor}});'>
+                {{item.minlevel}}~{{item.maxlevel}}
+              </view>
+            </view>
+            <view wx:else>
+              <view>
+                {{item.week}}{{item.dateformat}}
+              </view>
+              <view>{{item.min}}~{{item.max}}</view>
+              <view class='aqijianb' style='background: linear-gradient(to right, {{item.minbgcolor}} , {{item.maxbgcolor}});'>
+                {{item.minlevel}}~{{item.maxlevel}}
+              </view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <view class='bgbg'>
+    <image class='bgbg' src='../../../image/{{bg}}.jpg'></image>
+  </view>
+</view>
+<import src ="../../template/template.wxml"/>
+<template is="msgItem"/>

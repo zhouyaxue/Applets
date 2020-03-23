@@ -1,0 +1,6 @@
+@import "../../../css/index.wxss";
+@import "../../template/template.wxss";
+.hot view{
+  width:auto;
+  margin-left:25rpx;
+}

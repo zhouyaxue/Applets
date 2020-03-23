@@ -1,0 +1,20 @@
+.footerbox{
+  margin-top:20rpx;
+  padding:20rpx 0rpx;
+}
+.footer image{
+  width:162rpx;
+  height:56rpx;
+  margin:auto;
+  display: block;
+}
+.footerbo{
+  text-align: center;
+  overflow: hidden
+}
+.footerbo view{
+  display: inline-block;
+  font-size:28rpx;
+  color:#ffffff;
+  margin:auto 10rpx;
+}

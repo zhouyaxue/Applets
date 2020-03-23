@@ -1,0 +1,2 @@
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
+<web-view class="{{confifen.show}}" src="https://m.weatherol.com.cn/xiaochengxupop.html{{jingweidu}}"></web-view>

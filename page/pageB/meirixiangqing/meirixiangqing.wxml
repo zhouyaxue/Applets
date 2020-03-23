@@ -1,0 +1,244 @@
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
+<view class='bgbg'>
+  <image class='bgbg' src='../../../image/{{bg}}.jpg'></image>
+</view>
+<scroll-view scroll-x="true" scroll-left="{{left}}">
+  <view class='swiper-tab-list'>
+    <block wx:for="{{meiri}}">
+      <view class="meirix {{currentTab==index ? 'on' : ''}}" wx:if="{{index==0}}" data-current="{{index}}" bindtap="swichNav">
+        <view>{{item.date}}</view>
+        <view>昨天</view>
+        <view>
+          <image src='https://m.weatherol.com.cn/img/dayweather/d{{item.bai_weather}}.png'></image>
+        </view>
+      </view>
+      <view class="meirix {{currentTab==index ? 'on' : ''}}" wx:elif="{{index==1}}" data-current="{{index}}" bindtap="swichNav">
+        <view>{{item.date}}</view>
+        <view>今天</view>
+        <view>
+          <image src='https://m.weatherol.com.cn/img/dayweather/d{{item.bai_weather}}.png'></image>
+        </view>
+      </view>
+      <view class="meirix {{currentTab==index ? 'on' : ''}}" wx:else data-current="{{index}}" bindtap="swichNav">
+        <view>{{item.date}}</view>
+        <view>{{item.week}}</view>
+        <view>
+          <image src='https://m.weatherol.com.cn/img/dayweather/d{{item.bai_weather}}.png'></image>
+        </view>
+      </view>
+    </block>
+  </view>
+</scroll-view>
+<swiper current="{{currentTab}}" class="swiper-box" style="height:80%" duration="300" bindchange="bindChange">
+  <swiper-item wx:for="{{xiangqing}}">
+    <block wx:if="{{index==0}}">
+      <view class='title'>天气</view>
+      <view class='top'>
+        <view class='tople'>
+          <view class='big'>{{tianqitop[index]}}</view>
+          <view style='line-height:40rpx'>{{item.bai_windDirDecoder}} {{item.bai_windPowerDecoder}}</view>
+          <view>AQI {{aqi[index]}}~{{aqimax[index]}}</view>
+        </view>
+        <view class='topri'>
+          {{item.bai_temperature}}/{{item.wan_temperature}}°
+        </view>
+      </view>
+      <view class='title'>其他</view>
+      <view class='mo'>
+        <view class='mobo'>
+          <view class='mobori' style='border-left:none;margin-top:36rpx;'>
+              <view class='moborile'>
+                <image src='../../../image/richuriluo.png'></image>
+              </view>
+              <view class='moboriri'>
+                <view><view class='moboletop'>日出 </view>{{item.sunrise}}</view> 
+                <view><view class='moboletop'>日落</view>{{item.sunset}}</view>
+              </view>
+          </view>
+          <view class='mobori'>
+            <view class='moboritop'>
+              <view class='moborile moborileyue'><image src='../../../image/yuechuyueluo.png'></image></view>
+              <view class='moboriri'>
+                <view><view class='moboletop'>月出 </view>{{yuechu[index]}}</view>
+                <view> <view class='moboletop'>月落</view>{{yueluo[index]}}</view>
+              </view>
+            </view>
+            <view class='moboribo'><view class='moboletop'>月相：</view><view>{{yuexiang[0]}}</view><image wx:if="{{yue[0]}}" src='../../../image/{{yue[0]}}.png'></image></view>
+          </view>
+        </view>
+      </view>
+      <view class='title'>黄历</view>
+      <view class='bo bghei'>
+        <view class='huanglibox'>
+          <view class='huanglile'>
+            <view>{{gongli}}</view>
+            <view>{{nongli}}</view>
+          </view>
+          <view class='huangliri'>
+            <view>
+              <image src='../../../image/yi1.png'></image>
+              {{yi}}
+            </view>
+            <view>
+              <image src='../../../image/ji1.png'></image>
+              {{ji}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <block wx:elif="{{index==1}}">
+      <view class='title'>天气</view>
+      <view class='top'>
+        <view class='tople'>
+          <view class='big'>{{tianqitop[index]}}</view>
+          <view style='line-height:40rpx'>{{item.bai_windDirDecoder}} {{item.bai_windPowerDecoder}}</view>
+          <view>AQI {{aqi[index]}}~{{aqimax[index]}}</view>
+        </view>
+        <view class='topri'>
+          {{item.bai_temperature}}/{{item.wan_temperature}}°
+        </view>
+      </view>
+      <view class='title'>其他</view>
+      <view class='mo'>
+        <view class='mobo'>
+          <view class='mobori' style='border-left:none;margin-top:36rpx;'>
+              <view class='moborile'>
+                <image src='../../../image/richuriluo.png'></image>
+              </view>
+              <view class='moboriri'>
+                <view><view class='moboletop'>日出 </view>{{item.sunrise}}</view> 
+                <view><view class='moboletop'>日落</view>{{item.sunset}}</view>
+              </view>
+          </view>
+          <view class='mobori'>
+            <view class='moboritop'>
+              <view class='moborile moborileyue'><image src='../../../image/yuechuyueluo.png'></image></view>
+              <view class='moboriri'>
+                <view><view class='moboletop'>月出 </view>{{yuechu[index]}}</view>
+                <view> <view class='moboletop'>月落</view>{{yueluo[index]}}</view>
+              </view>
+            </view>
+            <view class='moboribo'><view class='moboletop'>月相：</view><view>{{yuexiang[0]}}</view><image wx:if="{{yue[0]}}" src='../../../image/{{yue[0]}}.png'></image></view>
+          </view>
+        </view>
+      </view>
+        <view class='title'>黄历</view>
+        <view class='bo bghei'>
+        <view class='huanglibox'>
+          <view class='huanglile'>
+            <view>{{gongli}}</view>
+            <view>{{nongli}}</view>
+          </view>
+          <view class='huangliri'>
+            <view>
+              <image src='../../../image/yi1.png'></image>
+              {{yi}}
+            </view>
+            <view>
+              <image src='../../../image/ji1.png'></image>
+              {{ji}}
+            </view>
+          </view>
+        </view>
+       </view>
+      
+      
+    </block>
+    <block wx:elif="{{index<7}}">
+      <view class='title'>天气</view>
+      <view class='top'>
+        <view class='tople'>
+          <view class='big'>{{tianqitop[index]}}</view>
+          <view style='line-height:40rpx'>{{item.bai_windDirDecoder}} {{item.bai_windPowerDecoder}}</view>
+          <view>AQI {{aqi[index]}}~{{aqimax[index]}}</view>
+        </view>
+        <view class='topri'>
+          {{item.bai_temperature}}/{{item.wan_temperature}}°
+        </view>
+      </view>
+      <view class='title'>其他</view>
+      <view class='mo'>
+        <view class='mobo'>
+          <view class='mobori' style='border-left:none;margin-top:36rpx;'>
+              <view class='moborile'>
+                <image src='../../../image/richuriluo.png'></image>
+              </view>
+              <view class='moboriri'>
+                <view><view class='moboletop'>日出 </view>{{item.sunrise}}</view> 
+                <view><view class='moboletop'>日落</view>{{item.sunset}}</view>
+              </view>
+          </view>
+          <view class='mobori'>
+            <view class='moboritop'>
+              <view class='moborile moborileyue'><image src='../../../image/yuechuyueluo.png'></image></view>
+              <view class='moboriri'>
+                <view><view class='moboletop'>月出 </view>{{yuechu[index]}}</view>
+                <view> <view class='moboletop'>月落</view>{{yueluo[index]}}</view>
+              </view>
+            </view>
+            <view class='moboribo'><view class='moboletop'>月相：</view><view>{{yuexiang[index]}}</view><image wx:if="{{yue[index]}}" src='../../../image/{{yue[index]}}.png'></image></view>
+          </view>
+        </view>
+      </view>
+      <view class='title'>黄历</view>
+      <view class='bo bghei'>
+        <view class='huanglibox'>
+          <view class='huanglile'>
+            <view>{{gongli}}</view>
+            <view>{{nongli}}</view>
+          </view>
+          <view class='huangliri'>
+            <view>
+              <image src='../../../image/yi1.png'></image>
+              {{yi}}
+            </view>
+            <view>
+              <image src='../../../image/ji1.png'></image>
+              {{ji}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class='title'>天气</view>
+      <view class='top'>
+        <view class='tople'>
+          <view class='big'>{{tianqitop[index]}}</view>
+          <view style='line-height:40rpx'>{{item.bai_windDirDecoder}} {{item.bai_windPowerDecoder}}</view>
+          <view>AQI 无</view>
+        </view>
+        <view class='topri'>
+          {{item.bai_temperature}}/{{item.wan_temperature}}°
+        </view>
+      </view>
+      <view class='title'>其他</view>
+      <view class='mo'>
+        <view class='mobo'>
+          <view class='mobori' style='border-left:none;margin-top:36rpx;'>
+              <view class='moborile'>
+                <image src='../../../image/richuriluo.png'></image>
+              </view>
+              <view class='moboriri'>
+                <view><view class='moboletop'>日出 </view>{{item.sunrise}}</view> 
+                <view><view class='moboletop'>日落</view>{{item.sunset}}</view>
+              </view>
+          </view>
+          <view class='mobori'>
+            <view class='moboritop'>
+              <view class='moborile moborileyue'><image src='../../../image/yuechuyueluo.png'></image></view>
+              <view class='moboriri'>
+                <view><view class='moboletop'>月出 </view>{{yuechu[index]}}</view>
+                <view> <view class='moboletop'>月落</view>{{yueluo[index]}}</view>
+              </view>
+            </view>
+            <view class='moboribo'><view class='moboletop'>月相：</view><view>{{yuexiang[index]}}</view><image wx:if="{{yue[index]}}" src='../../../image/{{yue[index]}}.png'></image></view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </swiper-item>
+</swiper>
+<import src ="../../template/template.wxml"/>
+<template is="msgItem"/>

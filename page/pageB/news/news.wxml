@@ -1,0 +1,2 @@
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
+<web-view src="https://m.weatherol.com/zmtqNewXq.html?newid={{newsid}}&entrance=xcx"></web-view>

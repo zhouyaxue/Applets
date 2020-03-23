@@ -1,0 +1,27 @@
+<view class='download'>
+  <image src='https://m.weatherol.com/img/dowload.jpg'></image>
+  <image class='er' src='https://m.weatherol.com/img/down_02.jpg'></image>
+  <view class='btn'>
+    <image bindtap='ios' src='https://m.weatherol.com/img/ios.png'></image>
+    <image bindtap='Android' src='https://m.weatherol.com/img/anzhuo.png'></image>
+  </view>
+</view>
+<view class="{{friendbox.show}} friendbox">
+  <view class='downloads'>
+    <image bindtap='close' src='https://m.weatherol.com/img/guanbiall.png'></image>
+    <canvas canvas-id="myCanvas" class='myCanvas'/>
+  </view>
+  <view bindtap="shareios" class='{{save.show}} btnbo' data-post-id="myCanvas">
+    保存二维码
+  </view>
+</view>
+<view class="{{friendboxan.show}} friendbox">
+  <view class='downloads'>
+    <image bindtap='close' src='https://m.weatherol.com/img/guanbiall.png'></image>
+    <canvas canvas-id="myCanvasan" class='myCanvas'/>
+  </view>
+  <view bindtap="shareios" class='{{save.show}} btnbo' data-post-id="myCanvasan">
+    保存二维码
+  </view>
+</view>
+<view class='zhe {{zhe.show}}'></view>

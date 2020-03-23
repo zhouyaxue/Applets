@@ -1,0 +1,2 @@
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
+<web-view src="https://m.weatherol.com.cn/meixiaoshigjxcx?id={{cityid}}"></web-view>  
